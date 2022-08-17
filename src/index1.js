@@ -8,6 +8,9 @@ import $ from 'jquery'
 import css from './css/index.css'
 import './css/index.less'
 
+// 导入 src/js/test/info.js
+import './js/test/info.js'
+
 console.log("from接收的css:" + css)
 
 // 1. 导入图片，得到图片文件
@@ -23,3 +26,14 @@ $(function () {
     $('li:odd').css('background-color', 'red')
     $('li:even').css('background-color', 'pink')
 })
+
+// 定义装饰器函数
+function info(target){
+    target.info = 'Person info.'
+}
+
+// 定义一个普通类
+@info
+class Person{}
+
+console.log(Person.info)
